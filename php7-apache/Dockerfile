@@ -17,8 +17,10 @@ RUN dnf -y install wget
 RUN wget http://rpms.remirepo.net/fedora/remi-release-24.rpm
 RUN dnf -y install remi-release-24.rpm
 
+RUN dnf config-manager --set-enabled remi-php70
+
 # Install PHP 7.0 from remi's repository
-RUN dnf --enablerepo=remi -y install \
+RUN dnf -y install \
   php \
   php-common \
   php-cli \
