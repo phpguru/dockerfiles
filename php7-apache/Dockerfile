@@ -14,24 +14,23 @@ RUN mkdir -p /var/log/httpd
 
 # Install remi's repository
 RUN dnf -y install wget
-RUN wget http://rpms.remirepo.net/fedora/remi-release-22.rpm
-RUN dnf -y install remi-release-22.rpm
+RUN wget http://rpms.remirepo.net/fedora/remi-release-24.rpm
+RUN dnf -y install remi-release-24.rpm
 
 # Install PHP 7.0 from remi's repository
-RUN dnf --enablerepo=remi --enablerepo=remi-test -y install \
-  php70 \
-  php70-php \
-  php70-php-common \
-  php70-php-cli \
-  php70-php-devel \
-  php70-php-gd \
-  php70-php-mbstring \
-  php70-php-mcrypt \
-  php70-php-pecl-memcached \
-  php70-php-mysqlnd \
-  php70-php-pdo \
-  php70-php-pgsql \
-  php70-php-xml; \
+RUN dnf --enablerepo=remi -y install \
+  php \
+  php-common \
+  php-cli \
+  php-devel \
+  php-gd \
+  php-mbstring \
+  php-mcrypt \
+  php-mysqlnd \
+  php-pdo \
+  php-xml \
+  php-pecl-redis \
+  php-pecl-yaml \
   dnf clean all
 
 # Copy apache run script
