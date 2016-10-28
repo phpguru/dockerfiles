@@ -1,7 +1,7 @@
 #
 # php7-apache
 #
-FROM fedora:22
+FROM fedora:24
 
 # Update distribution
 RUN dnf -y update; dnf clean all
